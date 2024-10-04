@@ -3,24 +3,30 @@ package cinema;
 import java.util.concurrent.TimeUnit;
 
 public class Fila extends Thread {
-    private static Cliente [] fila=new Cliente[10];
-    private static int personeInFila=fila.length;
-    private static int ultimoNumero=0;
+    //Attributi della fila
+    private static Cliente [] fila=new Cliente[20]; //Fila dei clienti
+    private static int personeInFila=fila.length; //Persone in fila
+    private static int ultimoNumero=0; //Numeri estratti
 
-    //Fila
+    //Creo le persone in fila
     public void popolateFila(){
         for (int i=0; i<fila.length;i++){
-            boolean s;
+            boolean s; //Variabile con casuale per creare l'avere o no della tessera
             if ((int) (Math.random()*10)+1 < 5)
                 s=false;
             else
                 s=true;
-           fila[i]=new Cliente("nome a caso",(int) (Math.random()*10)+1,s); //TODO: Mettere nomi a caso
+           fila[i]=new Cliente((int) (Math.random()*10)+1,s);
         }
     }
 
+    //Metodi get della fila
     public static int getPersoneInFila() { return personeInFila; }
-    //gestioni numeri
+
+    //Metodi get riferiti alla persona in fila
+    public String getNome(int num){ return fila[num].getNome(); }
+    public int getBiglietti(int num){ return fila[num].getNumBiglietti(); }
+    public boolean isSconto(int num){ return fila[num].isTesseraSconto(); }
 
     //Chiamo ultimo numero
     public synchronized static int ultimoNum () {
@@ -29,14 +35,4 @@ public class Fila extends Thread {
         return ultimoNumero;
     }
 
-    public void run() {
-        while (true){
-            popolateFila();
-            try {
-                TimeUnit.SECONDS.sleep(4);
-            }catch(Exception e) {
-                System.out.println(e);
-            }
-        }
-    }
 }
