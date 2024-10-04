@@ -50,7 +50,7 @@ public class Addetto extends Thread {
     }
 
     public void run() {
-        while (postiDisponibili>=0){
+        while (Fila.getPersoneInFila()>0){
             clienteSimulato();
         }
     }

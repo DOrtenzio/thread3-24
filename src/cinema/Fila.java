@@ -25,6 +25,7 @@ public class Fila extends Thread {
     //Chiamo ultimo numero
     public synchronized static int ultimoNum () {
         ultimoNumero++;
+        personeInFila--;
         return ultimoNumero;
     }
 
