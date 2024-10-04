@@ -16,8 +16,8 @@ public class TestSala {
        Addetto a3=new Addetto();
             System.out.println("Inserire codice identificativo addetto");
             a3.setCodice(in.next());
-       a1.start();
-       a2.start();
-       a3.start();
+       a1.start(f1);
+       a2.start(f1);
+       a3.start(f1);
     }
 }

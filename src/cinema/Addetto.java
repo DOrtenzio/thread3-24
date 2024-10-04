@@ -9,6 +9,7 @@ public class Addetto extends Thread {
     //Array in comune dove sono contenuti tutti i posti
     private static boolean [] posti =new boolean[90];
     private static int postiDisponibili=posti.length;
+    private static int prezzoStandard=10;
 
     public void setCodice(String codice) { this.codiceIdentificativo = codice; }
 
@@ -25,7 +26,7 @@ public class Addetto extends Thread {
     }
 
     //Simulo un'assegnazione di posto
-    public void clienteSimulato () {
+    public void clienteSimulato (Fila f1) {
         int i;
         synchronized (posti){
             System.out.println("Numero cliente : "+Fila.ultimoNum()+" clienti in coda: "+Fila.getPersoneInFila());
@@ -40,7 +41,7 @@ public class Addetto extends Thread {
                 i= (int) (Math.random() * posti.length);
             }while (controlloPosto(i));
            riservaPosto(i);
-           System.out.println("Posto "+i+" Fila "+Integer.parseInt(String.valueOf(i/10))+" Assegnato da: "+ codiceIdentificativo);
+           System.out.println(f1."Posto "+i+" Fila "+Integer.parseInt(String.valueOf(i/10))+" Assegnato da: "+ codiceIdentificativo);
            try {
                 TimeUnit.SECONDS.sleep(4);
            }catch(Exception e) {
@@ -49,9 +50,9 @@ public class Addetto extends Thread {
         }
     }
 
-    public void run() {
+    public void run(Fila f1) {
         while (Fila.getPersoneInFila()>0){
-            clienteSimulato();
+            clienteSimulato(f1);
         }
     }
 }
