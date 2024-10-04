@@ -1,6 +1,7 @@
 package cinema;
 
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class TestSala {
     public static void main(String[] args) {
@@ -16,8 +17,20 @@ public class TestSala {
         Cassa a3=new Cassa(f1);
             System.out.println("Inserire codice identificativo addetto");
             a3.setCodice(in.next());
+        a1.popolaSale();
+
         a1.start();
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        }catch(Exception e) {
+            System.out.println(e);
+        }
         a2.start();
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        }catch(Exception e) {
+            System.out.println(e);
+        }
         a3.start();
     }
 }
