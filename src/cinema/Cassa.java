@@ -16,7 +16,7 @@ public class Cassa extends Thread {
     }
 
     //Metodo per popolare sale
-    public void popolaSale(){
+    public static void popolaSale(){
         for(int i=0;i<sale.length;i++){
             sale[i]=new Sala((int) (Math.random() * 30)+80,(Math.random()*4)+4, i);
         }
@@ -24,6 +24,8 @@ public class Cassa extends Thread {
 
     //Metodi get e set
     public void setCodice(String codice) { this.codiceIdentificativo = codice; }
+    public static int getNumSale(){ return sale.length; }
+    public static int getPostiDisponibiliSala(int i){ return sale[i].getPostiDisponibili(); }
 
     //Estrai film a caso
     private int getSalaACaso(){

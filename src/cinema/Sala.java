@@ -24,6 +24,7 @@ public class Sala {
     public double getPrezzo() { return prezzo; }
     public int getPostiDisponibili() { return postiDisponibili; }
     public String getFilm() { return film; }
+    public int getPostiDisp() { return postiDisponibili; }
 
     public void setPostiDisponibili(int postiDisponibili) { this.postiDisponibili = postiDisponibili; }
     public void setPrezzo(double prezzo) { this.prezzo = prezzo; }

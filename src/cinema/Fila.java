@@ -1,15 +1,13 @@
 package cinema;
 
-import java.util.concurrent.TimeUnit;
-
 public class Fila extends Thread {
     //Attributi della fila
-    private static Cliente [] fila=new Cliente[20]; //Fila dei clienti
+    private static final Cliente [] fila=new Cliente[200]; //Fila dei clienti
     private static int personeInFila=fila.length; //Persone in fila
     private static int ultimoNumero=0; //Numeri estratti
 
     //Creo le persone in fila
-    public void popolateFila(){
+    public static void popolateFila(){
         for (int i=0; i<fila.length;i++){
             boolean s; //Variabile con casuale per creare l'avere o no della tessera
             if ((int) (Math.random()*10)+1 < 5)
