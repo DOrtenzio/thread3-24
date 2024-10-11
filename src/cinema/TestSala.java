@@ -27,8 +27,11 @@ public class TestSala {
         //Inizio
         System.out.println("Persone in fila: "+f1+"\tCasse aperte: "+cassaAp+"\tSale: "+Cassa.getNumSale());
         System.out.println("Cassa 1: ");
+        //TODO: Stampa qui a1
         System.out.println("Cassa 2: ");
+        //TODO: Stampa qui a2
         System.out.println("Cassa 3: ");
+        //TODO: Stampa qui a3
         a1.start();
         a2.start();
         a3.start();
