@@ -23,11 +23,10 @@ public class Cliente extends Thread {
     public boolean isTesseraSconto() { return tesseraSconto; }
     public int getNumBiglietti() { return numBiglietti; }
     public String getNome() { return nome; }
-
     public void setNumBiglietti(int numBiglietti) { this.numBiglietti = numBiglietti; }
     public void setNome(String nome) { this.nome = nome; }
     public void setTesseraSconto(boolean tesseraSconto) { this.tesseraSconto = tesseraSconto; }
 
-    //Metodo per estrarre un nome casuale
+    //Metodo per ricavare un nome semi-casuale
     public String getNomeCasuale() { return nomi [(int) (Math.random()* nomi.length)]; }
 }

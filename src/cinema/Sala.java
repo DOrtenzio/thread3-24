@@ -13,6 +13,7 @@ public class Sala {
             "Tutti tranne l'inps", "How I meet your debt", "Elena", "Achille dal tallone magico", "Ok"
     };
 
+    //Costruttori
     public Sala(int posti,double prezzo, int posizione){
         this.posti =new boolean[posti];
         this.prezzo=prezzo;
@@ -24,22 +25,21 @@ public class Sala {
     public double getPrezzo() { return prezzo; }
     public int getPostiDisponibili() { return postiDisponibili; }
     public String getFilm() { return film; }
-
     public void setPostiDisponibili(int postiDisponibili) { this.postiDisponibili = postiDisponibili; }
     public void setPrezzo(double prezzo) { this.prezzo = prezzo; }
 
-    //Metodo per estrarre un film casuale
+    //Metodo per ricavare un film semi-casuale
     public String getFilmCasuale(int posizione) { return nomiFilm[posizione]; }
 
     //Metodi legati alla prenotazione di un posto
-    //Riservo il posto
-    public void riservaPosto (int postoCercato) {
-        posti[postoCercato]=false;
-        postiDisponibili--;
-    }
-    //Controllo che il posto scelto dal cliente sia disponibile
-    public boolean controlloPosto (int postoCercato) {
-        return posti[postoCercato];
-    }
+        //Riservo il posto
+        public void riservaPosto (int postoCercato) {
+            posti[postoCercato]=false;
+            postiDisponibili--;
+        }
+        //Controllo che il posto scelto dal cliente sia disponibile
+        public boolean controlloPosto (int postoCercato) {
+            return posti[postoCercato];
+        }
 
 }
